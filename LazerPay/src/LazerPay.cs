@@ -54,7 +54,6 @@ namespace LazerPay.NET.src
             {
                 var httpRequest = new RestRequest($"{RouteHelper.ConfirmTransactionURL}/{reference}", Method.GET);
                 IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
-                var x = JsonConvert.DeserializeObject<ConfirmPaymentResponse>(ResponseHelper.ProcessResponse(response));
                 return JsonConvert.DeserializeObject<ConfirmPaymentResponse>(ResponseHelper.ProcessResponse(response));
             }
             catch(Exception ex)
