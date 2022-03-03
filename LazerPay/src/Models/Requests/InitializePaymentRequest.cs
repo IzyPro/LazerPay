@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LazerPay.NET.src.Models.Requests
+namespace LazerPayNET.Models.Requests
 {
     public class InitializePaymentRequest
     {

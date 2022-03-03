@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Lazer = LazerPay.NET.src;
-using LazerRequests = LazerPay.NET.src.Models.Requests;
-using LazerResponses = LazerPay.NET.src.Models.Responses;
+using LazerPayNET;
+using LazerRequests = LazerPayNET.Models.Requests;
+using LazerResponses = LazerPayNET.Models.Responses;
 
 namespace LazerPayTestAPI.Controllers
 {
@@ -10,16 +10,16 @@ namespace LazerPayTestAPI.Controllers
     [Route("[controller]")]
     public class LazerPayController : ControllerBase
     {
-        private readonly Lazer.LazerPay _lazerPay;
+        private readonly LazerPay _lazerPay;
         public LazerPayController()
         {
-            _lazerPay = new Lazer.LazerPay(publicKey: "YOUR-PUBLIC-KEY-GOES-HERE", secretKey: "YOUR-SECRET-KEY-GOES-HERE");
+            _lazerPay = new LazerPay(publicKey: "YOUR-PUBLIC-KEY-GOES-HERE", secretKey: "YOUR-SECRET-KEY-GOES-HERE");
         }
 
         [HttpGet("confirmPayment")]
         public async Task<LazerResponses.ConfirmPaymentResponse> ConfirmPayment(string reference)
         {
-            return await _lazerPay.ConfirmPayment(reference);
+            return await _lazerPay.ConfirmPayment(reference: reference);
         }
 
         [HttpPost("initializePayment")]

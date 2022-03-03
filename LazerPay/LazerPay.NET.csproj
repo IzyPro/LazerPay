@@ -2,7 +2,25 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Israel Ulelu</Authors>
+    <Description>A .NET SDK/Library for LazerPay</Description>
+    <Copyright></Copyright>
+    <PackageProjectUrl>https://github.com/IzyPro/LazerPay</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/IzyPro/LazerPay</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>lazerpay, crypto, lazer, pay, payment, cryptocurrency, israel, ulelu</PackageTags>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <PackageIcon>lazerpay.png</PackageIcon>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Downloads\lazerpay.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

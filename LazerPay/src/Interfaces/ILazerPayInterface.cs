@@ -1,11 +1,11 @@
-﻿using LazerPay.NET.src.Models.Requests;
-using LazerPay.NET.src.Models.Responses;
+﻿using LazerPayNET.Models.Requests;
+using LazerPayNET.Models.Responses;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LazerPay.NET.src.Interfaces
+namespace LazerPayNET.Interfaces
 {
     public interface ILazerPayInterface
     {

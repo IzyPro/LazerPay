@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LazerPay.NET.src.Exceptions
+namespace LazerPayNET.Exceptions
 {
     public class UnAuthorizedException : Exception
     {

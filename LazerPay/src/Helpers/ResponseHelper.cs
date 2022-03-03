@@ -1,12 +1,12 @@
-﻿using LazerPay.NET.src.Exceptions;
-using LazerPay.NET.src.Models.Responses;
+﻿using LazerPayNET.Exceptions;
+using LazerPayNET.Models.Responses;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LazerPay.NET.src.Helpers
+namespace LazerPayNET.Helpers
 {
     public static class ResponseHelper
     {
