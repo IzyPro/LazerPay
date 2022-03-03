@@ -1,14 +1,14 @@
-﻿using LazerPay.NET.src.Helpers;
-using LazerPay.NET.src.Interfaces;
-using LazerPay.NET.src.Models.Requests;
-using LazerPay.NET.src.Models.Responses;
+﻿using LazerPayNET.Helpers;
+using LazerPayNET.Interfaces;
+using LazerPayNET.Models.Requests;
+using LazerPayNET.Models.Responses;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LazerPay.NET.src
+namespace LazerPayNET
 {
     public class LazerPay : ILazerPayInterface
     {

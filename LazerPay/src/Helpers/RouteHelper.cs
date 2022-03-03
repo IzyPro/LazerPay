@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LazerPay.NET.src.Helpers
+namespace LazerPayNET.Helpers
 {
     public static class RouteHelper
     {
