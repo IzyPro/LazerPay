@@ -13,8 +13,7 @@ namespace LazerPayTestAPI.Controllers
         private readonly LazerPay _lazerPay;
         public LazerPayController()
         {
-            //_lazerPay = new LazerPay(publicKey: "YOUR-PUBLIC-KEY-GOES-HERE", secretKey: "YOUR-SECRET-KEY-GOES-HERE");
-            _lazerPay = new LazerPay(publicKey: "pk_test_wyoEpd21MjelhZ5fMtDYyV9DlTBmlxYCD9G7RspFw8Nk7GEsts", secretKey: "sk_test_G2Gr3DdUpK9P7ZLzlhgExNiQVjs7XPuNnAN5JTiBXuIhlaUPJN");
+            _lazerPay = new LazerPay(publicKey: "YOUR-PUBLIC-KEY-GOES-HERE", secretKey: "YOUR-SECRET-KEY-GOES-HERE");
         }
 
         [HttpGet("confirmPayment")]
