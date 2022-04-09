@@ -1,3 +1,4 @@
+![LazerPay Logo](lazerpay.png)
 # LazerPay
 The Lazer Pay .NET SDK/Library.
 
@@ -9,19 +10,19 @@ This SDK allows you to initialise a payment transaction, confirm payment, get ac
 Install via .NET CLI
 
 ```
-dotnet add package LazerPay.NET --version 1.0.1
+dotnet add package LazerPay.NET --version 1.1.0
 ```
 
 Install via Package Manager
 
 ```
-Install-Package LazerPay.NET -Version 1.0.1
+Install-Package LazerPay.NET -Version 1.1.0
 ```
 
 Install via Package Reference
 
 ```
-<PackageReference Include="LazerPay.NET" Version="1.0.1" />
+<PackageReference Include="LazerPay.NET" Version="1.1.0" />
 ```
 
 Other installation methods can be found [here](https://www.nuget.org/packages/LazerPay.NET/)
@@ -45,6 +46,14 @@ var lazerPay = new LazerPay(publicKey: "YOUR-PUBLIC-KEY-GOES-HERE", secretKey: "
 [Get Accepted Coins](#get-accepted-coins)
 
 [Transfer](#transfer)
+
+[Create Payment Link](#create-payment-link)
+
+[Update Payment Link](#update-payment-link)
+
+[Get Payment Link](#get-payment-link)
+
+[Get All Payment Link](#get-all-payment-link)
 
 ## Initialize Payment
 Initializes a payment transaction and returns the address to be used in completing the payment.
@@ -195,6 +204,146 @@ var result = lazerPay.Transfer(request);
     "reference": "string"
   },
   "statusCode": 0
+}
+```
+
+
+## Create Payment Link
+With Payment Links, you can create a payment page and share a link to it with your customers
+```
+var result = lazerPay.CreatePaymentLink(request);
+```
+
+### Sample Request
+```
+{
+  "title": "string",
+  "description": "string",
+  "logo": "string",
+  "currency": "string",
+  "type": "string",
+  "amount": 0
+}
+```
+
+### Sample Response
+```
+{
+  "message": "string",
+  "data": {
+    "id": "string",
+    "reference": "string",
+    "title": "string",
+    "description": "string",
+    "amount": "string",
+    "currency": "string",
+    "redirectUrl": "string",
+    "logo": "string",
+    "type": "string",
+    "network": "string",
+    "status": "string",
+    "paymentUrl": "string",
+    "createdAt": "2022-04-09T17:49:49.233Z",
+    "updatedAt": "2022-04-09T17:49:49.233Z"
+  },
+  "statusCode": 0,
+  "status": "string"
+}
+```
+
+
+## Update Payment Link
+With Payment Links, you can create a payment page and share a link to it with your customers
+```
+var result = lazerPay.UpdatePaymentLink(reference: reference, status: status);
+```
+
+### Sample Response
+```
+{
+  "message": "string",
+  "data": {
+    "id": "string",
+    "reference": "string",
+    "title": "string",
+    "description": "string",
+    "amount": "string",
+    "currency": "string",
+    "redirectUrl": "string",
+    "logo": "string",
+    "type": "string",
+    "network": "string",
+    "status": "string",
+    "paymentUrl": "string",
+    "createdAt": "2022-04-09T17:49:49.233Z",
+    "updatedAt": "2022-04-09T17:49:49.233Z"
+  },
+  "statusCode": 0,
+  "status": "string"
+}
+```
+
+## Get Payment Link
+With Payment Links, you can create a payment page and share a link to it with your customers
+```
+var result = lazerPay.GetPaymentLink(reference);
+```
+
+### Sample Response
+```
+{
+  "message": "string",
+  "data": {
+    "id": "string",
+    "reference": "string",
+    "title": "string",
+    "description": "string",
+    "amount": "string",
+    "currency": "string",
+    "redirectUrl": "string",
+    "logo": "string",
+    "type": "string",
+    "network": "string",
+    "status": "string",
+    "paymentUrl": "string",
+    "createdAt": "2022-04-09T17:49:49.233Z",
+    "updatedAt": "2022-04-09T17:49:49.233Z"
+  },
+  "statusCode": 0,
+  "status": "string"
+}
+```
+
+## Get All Payment Link
+With Payment Links, you can create a payment page and share a link to it with your customers
+```
+var result = lazerPay.GetAllPaymentLink();
+```
+
+### Sample Response
+```
+{
+  "message": "string",
+  "data": [
+    {
+      "id": "string",
+      "reference": "string",
+      "title": "string",
+      "description": "string",
+      "amount": "string",
+      "currency": "string",
+      "redirectUrl": "string",
+      "logo": "string",
+      "type": "string",
+      "network": "string",
+      "status": "string",
+      "paymentUrl": "string",
+      "createdAt": "2022-04-09T17:52:35.350Z",
+      "updatedAt": "2022-04-09T17:52:35.350Z"
+    }
+  ],
+  "statusCode": 0,
+  "status": "string"
 }
 ```
 
