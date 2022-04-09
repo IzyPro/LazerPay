@@ -12,5 +12,6 @@ namespace LazerPayNET.Helpers
         public static string ConfirmTransactionURL = "/transaction/verify";
         public static string GetAcceptedCoinsURL = "/coins";
         public static string TransferFundsURL = "/transfer";
+        public static string PaymentLinkURL = "/payment-links";
     }
 }

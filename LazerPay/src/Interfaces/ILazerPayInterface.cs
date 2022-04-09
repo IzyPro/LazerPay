@@ -13,5 +13,9 @@ namespace LazerPayNET.Interfaces
         Task<TransferResponse> Transfer(TransferRequest request);
         Task<GetAcceptedCoinsResponse> GetAcceptedCoins();
         Task<ConfirmPaymentResponse> ConfirmPayment(string reference);
+        Task<PaymentLinkResponse> CreatePaymentLink(CreatePaymentLinkRequest request);
+        Task<PaymentLinkResponse> UpdatePaymentLink(string reference, string status);
+        Task<PaymentLinkResponse> GetPaymentLink(string reference);
+        Task<GetAllPaymentLinkResponse> GetAllPaymentLink();
     }
 }

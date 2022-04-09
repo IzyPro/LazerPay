@@ -13,7 +13,8 @@ namespace LazerPayTestAPI.Controllers
         private readonly LazerPay _lazerPay;
         public LazerPayController()
         {
-            _lazerPay = new LazerPay(publicKey: "YOUR-PUBLIC-KEY-GOES-HERE", secretKey: "YOUR-SECRET-KEY-GOES-HERE");
+            //_lazerPay = new LazerPay(publicKey: "YOUR-PUBLIC-KEY-GOES-HERE", secretKey: "YOUR-SECRET-KEY-GOES-HERE");
+            _lazerPay = new LazerPay(publicKey: "pk_test_wyoEpd21MjelhZ5fMtDYyV9DlTBmlxYCD9G7RspFw8Nk7GEsts", secretKey: "sk_test_G2Gr3DdUpK9P7ZLzlhgExNiQVjs7XPuNnAN5JTiBXuIhlaUPJN");
         }
 
         [HttpGet("confirmPayment")]
@@ -40,6 +41,31 @@ namespace LazerPayTestAPI.Controllers
         public async Task<LazerResponses.TransferResponse> Transfer(LazerRequests.TransferRequest request)
         {
             return await _lazerPay.Transfer(request);
+        }
+
+        [HttpPost]
+        [Route("createPaymentLink")]
+        public async Task<LazerResponses.PaymentLinkResponse> CreatePaymentLink(LazerRequests.CreatePaymentLinkRequest request)
+        {
+            return await _lazerPay.CreatePaymentLink(request);
+        }
+        [HttpPut]
+        [Route("updatePaymentLink")]
+        public async Task<LazerResponses.PaymentLinkResponse> UpdatePaymentLink(string reference, string status)
+        {
+            return await _lazerPay.UpdatePaymentLink(reference: reference, status: status);
+        }
+        [HttpGet]
+        [Route("getPaymentLink")]
+        public async Task<LazerResponses.PaymentLinkResponse> GetPaymentLink(string reference)
+        {
+            return await _lazerPay.GetPaymentLink(reference);
+        }
+        [HttpGet]
+        [Route("getAllPaymentLink")]
+        public async Task<LazerResponses.GetAllPaymentLinkResponse> GetAllPaymentLink()
+        {
+            return await _lazerPay.GetAllPaymentLink();
         }
     }
 }
