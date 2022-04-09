@@ -36,6 +36,7 @@ namespace LazerPayNET
             try
             {
                 var httpRequest = new RestRequest(RouteHelper.InitializeTransactionURL, Method.POST);
+                httpRequest.AddHeader("Authorization", "Bearer " + secretKey);
                 var requestBody = JsonConvert.SerializeObject(request);
                 httpRequest.AddJsonBody(requestBody);
                 IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
@@ -53,10 +54,84 @@ namespace LazerPayNET
             try
             {
                 var httpRequest = new RestRequest($"{RouteHelper.ConfirmTransactionURL}/{reference}", Method.GET);
+                httpRequest.AddHeader("Authorization", "Bearer " + secretKey);
                 IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
                 return JsonConvert.DeserializeObject<ConfirmPaymentResponse>(ResponseHelper.ProcessResponse(response));
             }
             catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        //CREATE PAYMENT LINK
+        public async Task<PaymentLinkResponse> CreatePaymentLink(CreatePaymentLinkRequest request)
+        {
+            try
+            {
+                var httpRequest = new RestRequest(RouteHelper.PaymentLinkURL, Method.POST);
+                httpRequest.AddHeader("Authorization", "Bearer " + secretKey);
+                var requestBody = JsonConvert.SerializeObject(request);
+                httpRequest.AddJsonBody(requestBody);
+                IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
+                return JsonConvert.DeserializeObject<PaymentLinkResponse>(ResponseHelper.ProcessResponse(response));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //UPDATE PAYMENT LINK
+        public async Task<PaymentLinkResponse> UpdatePaymentLink(string reference, string status)
+        {
+            try
+            {
+                var obj = new
+                {
+                    status = status,
+                };
+                var httpRequest = new RestRequest($"{RouteHelper.PaymentLinkURL}/{reference}", Method.PUT);
+                httpRequest.AddHeader("Authorization", "Bearer " + secretKey);
+                var requestBody = JsonConvert.SerializeObject(obj);
+                httpRequest.AddJsonBody(requestBody);
+                IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
+                return JsonConvert.DeserializeObject<PaymentLinkResponse>(ResponseHelper.ProcessResponse(response));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //GET PAYMENT LINK
+        public async Task<PaymentLinkResponse> GetPaymentLink(string reference)
+        {
+            try
+            {
+                var httpRequest = new RestRequest($"{RouteHelper.PaymentLinkURL}/{reference}", Method.GET);
+                httpRequest.AddHeader("Authorization", "Bearer " + secretKey);
+                IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
+                return JsonConvert.DeserializeObject<PaymentLinkResponse>(ResponseHelper.ProcessResponse(response));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //GET ALL PAYMENT LINK
+        public async Task<GetAllPaymentLinkResponse> GetAllPaymentLink()
+        {
+            try
+            {
+                var httpRequest = new RestRequest(RouteHelper.PaymentLinkURL, Method.GET);
+                httpRequest.AddHeader("Authorization", "Bearer " + secretKey);
+                IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
+                return JsonConvert.DeserializeObject<GetAllPaymentLinkResponse>(ResponseHelper.ProcessResponse(response));
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -68,6 +143,7 @@ namespace LazerPayNET
             try
             {
                 var httpRequest = new RestRequest(RouteHelper.GetAcceptedCoinsURL, Method.GET);
+                httpRequest.AddHeader("Authorization", "Bearer " + secretKey);
                 IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
                 return JsonConvert.DeserializeObject<GetAcceptedCoinsResponse>(ResponseHelper.ProcessResponse(response));
             }
@@ -83,6 +159,7 @@ namespace LazerPayNET
             try
             {
                 var httpRequest = new RestRequest(RouteHelper.TransferFundsURL, Method.POST);
+                httpRequest.AddHeader("Authorization", "Bearer " + secretKey);
                 var requestBody = JsonConvert.SerializeObject(request);
                 httpRequest.AddJsonBody(requestBody);
                 IRestResponse response = await httpClient.ExecuteAsync(httpRequest);
