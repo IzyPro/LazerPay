@@ -1,5 +1,9 @@
 ![LazerPay Logo](lazerpay.png)
 # LazerPay
+
+[![Lazerpay](https://img.shields.io/nuget/vpre/LazerPay.NET)](https://github.com/IzyPro/LazerPay)
+[![Downloads](https://img.shields.io/nuget/dt/LazerPay.NET?color=orange)](https://github.com/IzyPro/LazerPay)
+
 The LazerPay .NET SDK makes it easy to add Lazerpay crypto payment features to your .NET applications.
 
 
