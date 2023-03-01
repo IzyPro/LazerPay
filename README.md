@@ -1,8 +1,7 @@
 ![LazerPay Logo](lazerpay.png)
 # LazerPay
-The Lazer Pay .NET SDK/Library.
+The LazerPay .NET SDK makes it easy to add Lazerpay crypto payment features to your .NET applications.
 
-This SDK allows you to initialise a payment transaction, confirm payment, get accepted coins and make transfers. 
 
 # Get Started
 
